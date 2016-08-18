@@ -24,6 +24,10 @@
 
 lein with-profile +windows uberjar
 
+Для сборки проекта под linux использовать профайл не нужно
+
+lein uberjar
+
 ## Usage
 
     $ example-selenium-project>lein with-profile +windows,+phantom run
