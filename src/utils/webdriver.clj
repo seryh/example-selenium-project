@@ -60,8 +60,8 @@
   [& body]
   (let [el-list (apply hash-map body)
         doit (fn [coll s el]
-               (let [primise (future (type-text s el) :ok)]
-                 (conj coll primise)))
+               (let [promise (future (type-text s el) :ok)]
+                 (conj coll promise)))
         promises (reduce-kv doit [] el-list)]
     (mapv deref promises)))
 
