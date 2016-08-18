@@ -65,17 +65,4 @@
         promises (reduce-kv doit [] el-list)]
     (mapv deref promises)))
 
-(defn select-from-list
-  "Набирает текст в jQuery UI autocomplete и выбирает первый элемент"
-  [n el]
-  (click el)
-  (wait)
-  (loop [i 0]
-    (when (<= i n)
-      (send-keys el org.openqa.selenium.Keys/ARROW_DOWN)
-      (wait-for-jq-ajax)
-      (recur (inc i))))
-  (send-keys el org.openqa.selenium.Keys/ENTER)
-  (wait) el)
-
 
