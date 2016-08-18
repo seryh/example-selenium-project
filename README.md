@@ -39,5 +39,8 @@ lein uberjar
 
     
 При запуске собранного через uberjar исполняемого файла, 
-phantom webdriver должен находится в каталоге с запускаемым jar файлом.
+phantom webdriver должен находится в каталоге с запускаемым jar файлом:
+
+    $ example-selenium-project/target>java -jar runtests.jar
+
 
