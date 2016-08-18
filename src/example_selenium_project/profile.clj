@@ -37,7 +37,7 @@
   (reset! tests-success 0))
 
 ;; если +windows профайл, переназначаем путь к web-driver,
-;; в корне проекта дожны быть файлы chromedriver.exe и phantomjs.exe
+;; в корне проекта должны быть файлы chromedriver.exe и phantomjs.exe
 (case (environ/env :clj-env-os)
   "windows" (if (#{"selenium"} profile-name)
               (System/setProperty "webdriver.chrome.driver" "chromedriver.exe")
