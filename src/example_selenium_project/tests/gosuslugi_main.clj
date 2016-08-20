@@ -3,17 +3,20 @@
             [utils.webdriver :refer :all]
             [clj-webdriver.taxi :refer :all]
             [clojure.tools.logging :as log]
-            [clojure.test :refer :all]))
+            [clojure.test :refer :all])
+  (:import [org.openqa.selenium Keys]))
+
+(defn get-search-input [] ($ ".index-slider-search input"))
 
 ;; проверка формы поиска https://www.gosuslugi.ru/
 (deftest gosuslugi-main-search-form
   (profile/open-browser "https://www.gosuslugi.ru/")
   (try
-    (->> ($ ".index-slider-search input")
+    (->> (get-search-input)
          (type-text "загранпаспорт")
-         (->>keys org.openqa.selenium.Keys/ARROW_DOWN)
-         (->>keys org.openqa.selenium.Keys/ARROW_DOWN)
-         (->>keys org.openqa.selenium.Keys/ENTER))
+         (->>keys Keys/ARROW_DOWN)
+         (->>keys Keys/ARROW_DOWN)
+         (->>keys Keys/ENTER))
 
     (when-not ($ ".title_search")
       (throw (Exception. "redirect to search result, error")))
