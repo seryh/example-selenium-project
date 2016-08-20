@@ -24,6 +24,10 @@
 
 lein with-profile +windows uberjar
 
+Для сборки проекта под linux использовать профайл не нужно
+
+lein uberjar
+
 ## Usage
 
     $ example-selenium-project>lein with-profile +windows,+phantom run
@@ -35,5 +39,8 @@ lein with-profile +windows uberjar
 
     
 При запуске собранного через uberjar исполняемого файла, 
-phantom webdriver должен находится в каталоге с запускаемым jar файлом.
+phantom webdriver должен находится в каталоге с запускаемым jar файлом:
+
+    $ example-selenium-project/target>java -jar runtests.jar
+
 
