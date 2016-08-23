@@ -1,6 +1,6 @@
 # example-selenium-project
 
-Пример простого clojure проекта для тестирования с помощью selenium.
+Пример простого clojure проекта для тестирования с помощью selenium - [статья на Хабре](https://habrahabr.ru/post/308228/)
 
 Для примера тестов используется сайт - gosuslugi.ru
 
