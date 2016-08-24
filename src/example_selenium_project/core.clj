@@ -7,8 +7,8 @@
 (profile/loading-my-tests "example-selenium-project.tests")
 
 (def test-case-gosuslugi
-  ['gosuslugi-reg-form
-   'gosuslugi-main-search-form])
+  ['gosuslugi-reg-form-webtest
+   'gosuslugi-main-search-form-webtest])
 
 (defn run-tests []
   (profile/tests-report-reset)

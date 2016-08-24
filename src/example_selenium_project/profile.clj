@@ -9,7 +9,9 @@
             [clj-webdriver.taxi :refer :all]
             [environ.core :as environ]
             [clojure.tools.namespace.find :as ns]
-            [clojure.java.classpath :as cp])
+            [clojure.tools.logging :as log]
+            [clojure.java.classpath :as cp]
+            [clojure.test :refer :all])
   (:import (java.util.concurrent TimeUnit)
            (org.openqa.selenium.remote DesiredCapabilities)))
 
@@ -85,6 +87,16 @@
   (window-resize {:width 1024 :height 768})
   (implicit-wait 6000))
 
-
-
+(defmacro defwebtest [name url & forms]
+  `(deftest ~name
+     (open-browser ~url)
+     (try
+        ~@forms
+       (swap! tests-success inc)
+       (log/info (var ~name) "test-->ok")
+       (is true)
+       (catch Throwable t#
+         (log/info (var ~name) "test-->fail" (.getMessage t#))
+         (swap! tests-fail inc)
+         (is false)))))
 
